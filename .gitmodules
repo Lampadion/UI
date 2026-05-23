@@ -1,0 +1,3 @@
+[submodule "src/assets/graphics"]
+	path = src/assets/graphics
+	url = https://github.com/Lampadion/Graphics.git
