@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LampadionIcon from '@icons/app/lampadion.svg?component';
+import LampadionIcon from '@icons/app/lampadion.svg';
 </script>
 
 <style lang="scss" scoped></style>

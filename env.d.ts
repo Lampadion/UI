@@ -1,13 +1,8 @@
 /// <reference types="vite/client" />
+/// <reference types="vite-svg-loader" />
 
 declare module '*.svg' {
-  import { DefineComponent } from 'vue';
-  const component: DefineComponent;
-  export default component;
-}
-
-declare module '*.svg?component' {
-  import { Component } from 'vue';
-  const component: Component;
-  export default component;
+  import { FunctionalComponent, SVGAttributes } from 'vue';
+  const src: FunctionalComponent<SVGAttributes>;
+  export default src;
 }
