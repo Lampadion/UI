@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { initWindowVariables } from './utils/windowVariables';
+
+onMounted(() => {
+  initWindowVariables();
+});
+</script>
 
 <template>
   <RouterView />
@@ -9,4 +15,4 @@
   </p>
 </template>
 
-<style scoped></style>
+<style lang="scss" src="./styles/default.scss" />

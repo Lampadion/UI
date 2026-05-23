@@ -15,6 +15,7 @@ declare global {
   const defineAsyncComponent: typeof import('vue').defineAsyncComponent
   const defineComponent: typeof import('vue').defineComponent
   const defineStore: typeof import('pinia').defineStore
+  const dimensions: typeof import('../constants/index').dimensions
   const dummy: typeof import('../constants/index').dummy
   const effectScope: typeof import('vue').effectScope
   const getActivePinia: typeof import('pinia').getActivePinia
@@ -23,6 +24,7 @@ declare global {
   const getCurrentWatcher: typeof import('vue').getCurrentWatcher
   const h: typeof import('vue').h
   const inject: typeof import('vue').inject
+  const isDev: typeof import('../constants/index').isDev
   const isProxy: typeof import('vue').isProxy
   const isReactive: typeof import('vue').isReactive
   const isReadonly: typeof import('vue').isReadonly

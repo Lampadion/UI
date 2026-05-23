@@ -1,1 +1,1 @@
-export const dummy = true;
+export const isDev = import.meta.env.DEV;
