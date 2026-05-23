@@ -14,7 +14,7 @@
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
     "format": "prettier --write --experimental-cli src/",
-    "graphics:update": "git submodule update --remote src/assets/graphics && git diff --quiet HEAD src/assets/graphics || (git add src/assets/graphics && git commit -m 'chore: update graphics submodule')",
+    "graphics:update": "node scripts/graphics-update.mjs",
     "prepare": "git submodule update --init --recursive"
   },
   "dependencies": {
