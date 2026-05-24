@@ -60,7 +60,7 @@ type uiOptions = {
     showAlternativeSequences: boolean;
 
     suggestionsLineLength: number;
-    suggestionsLength: [number, number]; // suggestionsLength[1] * suggestionsLength[2]
+    suggestionsLength: [number, number]; // UI uses [0] * [1] as value
 
     fontSize: number;
     fontFamily: string;

@@ -2,11 +2,22 @@ import { invoke } from '@tauri-apps/api/core';
 import type { AppConfig } from './api.d';
 
 let cache: AppConfig | null = null;
+let inflightRequest: Promise<AppConfig> | null = null;
 
 export async function loadConfig(): Promise<AppConfig> {
-  const cfg = await invoke<AppConfig>('load_config');
-  cache = cfg;
-  return cfg;
+  if (!inflightRequest) {
+    inflightRequest = invoke<AppConfig>('load_config')
+      .then((cfg) => {
+        cache = cfg;
+        inflightRequest = null;
+        return cfg;
+      })
+      .catch((err) => {
+        inflightRequest = null;
+        throw err;
+      });
+  }
+  return inflightRequest;
 }
 
 export async function getConfig(): Promise<AppConfig> {
@@ -25,6 +36,7 @@ export async function patchConfig(patch: Partial<AppConfig>): Promise<AppConfig>
   return updated;
 }
 
-export function clearConfigCache() {
+export function clearConfigCache(): void {
   cache = null;
+  inflightRequest = null;
 }
