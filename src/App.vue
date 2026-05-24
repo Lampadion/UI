@@ -1,18 +1,22 @@
 <script setup lang="ts">
-import { initWindowVariables } from './utils/windowVariables';
+const route = useRoute();
 
 onMounted(() => {
-  initWindowVariables();
+  const appParent = document.getElementById('app')?.parentElement;
+  appParent?.classList.add(route.meta.layout.cssClass);
 });
+
+watch(
+  () => route.meta.layout,
+  (layout) => {
+    layout?.onMounted?.();
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
-  <RouterView />
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <component :is="route.meta.layout.component">
+    <RouterView />
+  </component>
 </template>
-
-<style lang="scss" src="./styles/default.scss" />
